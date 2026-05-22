@@ -1,26 +1,22 @@
-#include <openssl/ec.h>
-#include <openssl/obj_mac.h>
+#include "hblk_crypto.h"
 
 /**
- * ec_create - creates a new EC key pair using secp256k1
+ * ec_create - create a new EC key pair.
  *
- * Return: pointer to EC_KEY, or NULL on failure
+ * Return: Pointer to the created EC key pair,or NULL upon failure.
+ * Author: Frank Onyema Orji.
  */
 EC_KEY *ec_create(void)
 {
-    EC_KEY *key = NULL;
+	EC_KEY *key = NULL;
 
-    /* Create EC_KEY structure with secp256k1 curve */
-    key = EC_KEY_new_by_curve_name(NID_secp256k1);
-    if (key == NULL)
-        return NULL;
-
-    /* Generate private + public key */
-    if (EC_KEY_generate_key(key) != 1)
-    {
-        EC_KEY_free(key);
-        return NULL;
-    }
-
-    return key;
+	key = EC_KEY_new_by_curve_name(EC_CURVE);
+	if (!key)
+		return (NULL);
+	if (!EC_KEY_generate_key(key))
+	{
+		EC_KEY_free(key);
+		return (NULL);
+	}
+	return (key);
 }
