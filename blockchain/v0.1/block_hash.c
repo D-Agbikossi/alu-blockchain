@@ -7,7 +7,6 @@
  * @hash_buf: buffer to store the hash
  *
  * Return: pointer to the hash_buf
- * Author: Frank Onyema Orji
  */
 uint8_t *block_hash(block_t const *block,
 		uint8_t hash_buf[SHA256_DIGEST_LENGTH])

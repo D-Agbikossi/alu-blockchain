@@ -1,9 +1,10 @@
 #include "blockchain.h"
 
+
 /**
-* blockchain_destroy - deletes an existing Blockchain
+* blockchain_destroy - deletes an existing Blockchain.
 *
-* @blockchain: pointer to the Blockchain structure to delete
+* @blockchain: pointer to the Blockchain structure to delete.
 */
 void blockchain_destroy(blockchain_t *blockchain)
 {
